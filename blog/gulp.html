@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>gulp实例 | HOME</title>
+    <meta name="description" content="vuepress blog">
+    <link rel="icon" href="/favicon.ico">
+    
+    <link rel="preload" href="/assets/css/0.styles.42b78fe1.css" as="style"><link rel="preload" href="/assets/js/app.63237d4d.js" as="script"><link rel="preload" href="/assets/js/6.8d074b97.js" as="script"><link rel="prefetch" href="/assets/js/5.14e8ac65.js"><link rel="prefetch" href="/assets/js/2.6fc8154e.js"><link rel="prefetch" href="/assets/js/3.0f98737a.js"><link rel="prefetch" href="/assets/js/4.5bf56974.js"><link rel="prefetch" href="/assets/js/7.a7ce49d7.js"><link rel="prefetch" href="/assets/js/8.c20934a2.js"><link rel="prefetch" href="/assets/js/9.4206d11a.js"><link rel="prefetch" href="/assets/js/10.e46eed41.js"><link rel="prefetch" href="/assets/js/11.4e365b57.js"><link rel="prefetch" href="/assets/js/12.a5a83016.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.42b78fe1.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div><div class="wrap"><div class="theme-container container no-sidebar"><header class="navbar"><div class="nav-header"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/img/logo.png" class="logo"> <span class="site-name can-hide">
+        HOME
+      </span></a> <nav class="nav-links can-hide"><div class="nav-item"><a href="/blog/" class="nav-link router-link-active">Blog</a></div><div class="nav-item"><a href="/about/" class="nav-link">About</a></div><div class="nav-item"><a href="https://github.com/raythunder" target="_blank" rel="noopener noreferrer" class="nav-link">Github</a></div><div class="nav-item"><a href="/tags/" class="nav-link">TAGS</a></div> <!----></nav> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div></div></div></header> <div class="sidebar-mask"></div> <div class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/blog/" class="nav-link router-link-active">Blog</a></div><div class="nav-item"><a href="/about/" class="nav-link">About</a></div><div class="nav-item"><a href="https://github.com/raythunder" target="_blank" rel="noopener noreferrer" class="nav-link">Github</a></div><div class="nav-item"><a href="/tags/" class="nav-link">TAGS</a></div> <!----></nav> <!----></div> <div class="page-container"><div><div class="page card"><div class="content-header"><h1 class="page-title" style="color:#ac3e40;">
+        gulp实例
+      </h1> <span class="page-timestamp">2017-09-07 15:18:51</span></div> <div class="content"><h4 id="新建gulpfile-js文件"><a href="#新建gulpfile-js文件" aria-hidden="true" class="header-anchor">#</a> 新建gulpfile.js文件</h4> <p>根据实际使用注释掉了一些不需要的插件</p> <h4 id="初始化环境"><a href="#初始化环境" aria-hidden="true" class="header-anchor">#</a> 初始化环境</h4> <div class="language-shell extra-class"><pre class="language-text"><code>npm init  # 生成package.json
+</code></pre></div><h4 id="安装插件"><a href="#安装插件" aria-hidden="true" class="header-anchor">#</a> 安装插件</h4> <p>根据gulp.js安装所需插件</p> <div class="language-shell extra-class"><pre class="language-text"><code>npm install --save gulp gulp-plumber gulp-less browser-sync gulp-useref gulp-uglify gulp-if gulp-cssnano gulp-cache del run-sequence gulp-autoprefixer gulp-sourcemaps lazypipe
+</code></pre></div><h4 id="目录结构"><a href="#目录结构" aria-hidden="true" class="header-anchor">#</a> 目录结构</h4> <p><code>cmd 进入某文件夹，输入 tree /F 可生成文件目录树（win）</code></p> <div class="language- extra-class"><pre class="language-text"><code>│  gulpfile.js
+│  package.json
+│
+└─src
+    │  index.html
+    │
+    ├─css
+    │      style.css
+    │
+    ├─img
+    ├─js
+    │      index.js
+    │
+    └─less
+            style.less
+</code></pre></div><h4 id="开发运行"><a href="#开发运行" aria-hidden="true" class="header-anchor">#</a> 开发运行</h4> <div class="language-shell extra-class"><pre class="language-text"><code>gulp   # 在根路径运行，此时是开发环境，浏览器自动打开，less实时编译，页面自动刷新。
+</code></pre></div><h4 id="打包"><a href="#打包" aria-hidden="true" class="header-anchor">#</a> 打包</h4> <p>将页面中需要打包的文件放入特定的注释中</p> <div class="language-html extra-class"><pre class="language-html"><code><span class="token doctype">&lt;!DOCTYPE html&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>en<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>UTF-8<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">&gt;</span></span>Document<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">&gt;</span></span>
+	<span class="token comment">&lt;!--build:css css/style.min.css --&gt;</span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>stylesheet<span class="token punctuation">&quot;</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>text/css<span class="token punctuation">&quot;</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>css/style.css<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+ 	<span class="token comment">&lt;!-- endbuild--&gt;</span>	
+
+	<span class="token comment">&lt;!--build:js js/index.min.js --&gt;</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>text/javascript<span class="token punctuation">&quot;</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">'</span>js/index.js<span class="token punctuation">'</span></span><span class="token punctuation">&gt;</span></span><span class="token script language-javascript"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+ 	<span class="token comment">&lt;!-- endbuild--&gt;</span>	
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><div class="language-shell extra-class"><pre class="language-text"><code>gulp build  # 打包生成文件到dist目录
+</code></pre></div><p>生成结果：</p> <div class="language-shell extra-class"><pre class="language-text"><code>│  gulpfile.js
+│  package.json
+│
+├─dist
+│  │  index.html
+│  │
+│  ├─css
+│  │      style.min.css
+│  │
+│  ├─js
+│  │      index.min.js
+│  │
+│  └─maps
+│      ├─css
+│      │      style.min.css.map
+│      │
+│      └─js
+│              index.min.js.map
+│
+└─src
+    │  index.html
+    │
+    ├─css
+    │      style.css
+    │
+    ├─img
+    ├─js
+    │      index.js
+    │
+    └─less
+            style.less
+</code></pre></div></div> <!----> <div class="content page-nav"><p class="inner"><span class="prev">
+          ← <a href="/blog/leaflet1.html" class="prev">
+            leaflet笔记（一）
+          </a></span> <span class="next"><a href="/blog/vueUse.html">
+            Vuejs项目--问题总结
+          </a> →
+        </span></p></div></div> <div id="comment-container"><div class="gt-container"><div class="gt-initing"><i class="gt-loader"></i> <p class="gt-initing-text">Gitalking ...</p></div> <!----> <!----> <div><div class="gt-header"><a class="gt-avatar-github"><span class="gt-ico gt-ico-github"><span class="gt-svg"><svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M64 524C64 719.602 189.356 885.926 364.113 947.017 387.65799 953 384 936.115 384 924.767L384 847.107C248.118 863.007 242.674 773.052 233.5 758.001 215 726.501 171.5 718.501 184.5 703.501 215.5 687.501 247 707.501 283.5 761.501 309.956 800.642 361.366 794.075 387.658 787.497 393.403 763.997 405.637 743.042 422.353 726.638 281.774 701.609 223 615.67 223 513.5 223 464.053 239.322 418.406 271.465 381.627 251.142 320.928 273.421 269.19 276.337 261.415 334.458 256.131 394.888 302.993 399.549 306.685 432.663 297.835 470.341 293 512.5 293 554.924 293 592.81 297.896 626.075 306.853 637.426 298.219 693.46 258.054 747.5 262.966 750.382 270.652 772.185 321.292 753.058 381.083 785.516 417.956 802 463.809 802 513.5 802 615.874 742.99 701.953 601.803 726.786 625.381 750.003 640 782.295 640 818.008L640 930.653C640.752 939.626 640 948.664978 655.086 948.665 832.344 888.962 960 721.389 960 524 960 276.576 759.424 76 512 76 264.577 76 64 276.576 64 524Z"></path>
+</svg>
+</span> <!----></span></a> <div class="gt-header-comment"><textarea placeholder="Leave a comment" class="gt-header-textarea"></textarea> <div class="gt-header-preview markdown-body hide"></div> <div class="gt-header-controls"><a href="https://guides.github.com/features/mastering-markdown/" target="_blank" class="gt-header-controls-tip"><span class="gt-ico gt-ico-tip"><span class="gt-svg"><svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M512 366.949535c-16.065554 0-29.982212 13.405016-29.982212 29.879884l0 359.070251c0 16.167882 13.405016 29.879884 29.982212 29.879884 15.963226 0 29.879884-13.405016 29.879884-29.879884L541.879884 396.829419C541.879884 380.763865 528.474868 366.949535 512 366.949535L512 366.949535z"
+    p-id="3083"></path>
+  <path d="M482.017788 287.645048c0-7.776956 3.274508-15.553912 8.80024-21.181973 5.525732-5.525732 13.302688-8.80024 21.181973-8.80024 7.776956 0 15.553912 3.274508 21.079644 8.80024 5.525732 5.62806 8.80024 13.405016 8.80024 21.181973 0 7.776956-3.274508 15.656241-8.80024 21.181973-5.525732 5.525732-13.405016 8.697911-21.079644 8.697911-7.879285 0-15.656241-3.274508-21.181973-8.697911C485.292295 303.301289 482.017788 295.524333 482.017788 287.645048L482.017788 287.645048z"
+    p-id="3084"></path>
+  <path d="M512 946.844409c-239.8577 0-434.895573-195.037873-434.895573-434.895573 0-239.8577 195.037873-434.895573 434.895573-434.895573 239.755371 0 434.895573 195.037873 434.895573 434.895573C946.895573 751.806535 751.755371 946.844409 512 946.844409zM512 126.17088c-212.740682 0-385.880284 173.037274-385.880284 385.777955 0 212.740682 173.037274 385.777955 385.880284 385.777955 212.740682 0 385.777955-173.037274 385.777955-385.777955C897.777955 299.208154 724.740682 126.17088 512 126.17088z"
+    p-id="3085"></path>
+</svg>
+</span> <span class="gt-ico-text">Markdown is supported</span></span></a> <!----> <button class="gt-btn gt-btn-preview"><span class="gt-btn-text">Preview</span> <!----></button> <button class="gt-btn gt-btn-login"><span class="gt-btn-text">Login with GitHub</span> <!----></button></div></div></div> <div class="gt-comments"><span></span> <p class="gt-comments-null">
+                Be the first guy leaving a comment!
+            </p> <!----></div></div></div></div></div> <!----></div> <div class="tool-group"><!----></div></div> <!----></div> <div class="background-mask" style="background:url(&quot;/img/&quot;) no-repeat fixed;"></div></div></div>
+    <script src="/assets/js/6.8d074b97.js" defer></script><script src="/assets/js/app.63237d4d.js" defer></script>
+  </body>
+</html>
