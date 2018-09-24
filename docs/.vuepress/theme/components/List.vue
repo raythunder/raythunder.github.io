@@ -7,7 +7,9 @@
       :key="index">
       <div class="title">{{ item.title }}</div>
       <div class="card-content">
-        <div class="image" :style="{backgroundImage:`url(${item.frontmatter.cover})`}"></div>
+        <div
+          class="image"
+          :style="{backgroundImage:`url(${item.frontmatter.cover})`}"></div>
         <!-- <img
           v-if=""
           :src="item.frontmatter.cover"
@@ -72,7 +74,7 @@ export default {
 
 <style lang="scss">
 .component-item-list {
-  width: 880px; padding-top: 80px;margin: 0 auto; 
+  width: 880px; padding-top: 80px;margin: 0 auto;
   .el-card {
     margin: 10px;
     cursor: pointer;
